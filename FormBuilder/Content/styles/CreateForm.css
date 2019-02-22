@@ -1,0 +1,53 @@
+﻿fieldset {
+    padding: 10px;
+    display: block;
+    clear: both;
+    margin: 5px 0px;
+}
+
+legend {
+    padding: 0px 10px;
+
+}
+
+/*input.add {
+    float: right;
+}*/
+
+input.fieldname {
+    float: left;
+    clear: left;
+    display: block;
+    margin: 5px;
+}
+
+select.fieldtype {
+    float: left;
+    display: block;
+    margin: 5px;
+}
+
+input.fieldreq {
+    float: left;
+    display: block;
+    margin: 5px;
+}
+
+input.remove {
+    float: left;
+    display: block;
+    margin: 5px;
+}
+
+#formfields label {
+    float: left;
+    clear: left;
+    display: block;
+    margin: 5px;
+}
+
+#formfields input, #formfields textarea {
+    float: left;
+    display: block;
+    margin: 5px;
+}
