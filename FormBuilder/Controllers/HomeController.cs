@@ -26,15 +26,8 @@ namespace FormBuilder.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public JsonResult CreateForm(CustomForm formData)
         {
 
@@ -54,7 +47,6 @@ namespace FormBuilder.Controllers
                 Fields = formData.Fields,
                 UserId = int.Parse(userId),
             };
-
 
             db.Forms.Add(form);
             db.SaveChanges();

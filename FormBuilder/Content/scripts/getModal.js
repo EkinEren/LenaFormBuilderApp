@@ -31,6 +31,8 @@
             };
         }
 
+        var token = $('[name=__RequestVerificationToken]').val();
+
         var newForm = new Object();
         newForm.Name = formname;
         newForm.Description = desc;
@@ -47,6 +49,8 @@
             success: function () {
                 $("#addSuccess").css("color", "green");
                 $("#addSuccess").text('Form başarıyla eklendi!');
+                $("#myModal").hide();
+                $(".modal-backdrop").remove();
             },
             failure: function () {
                 $("#addSuccess").css("color", "red");

@@ -13,12 +13,15 @@ namespace FormBuilder.Models
         public int FormId { get; set; }
 
         [Required]
+        [Display(Name = "Form Adı")]
         public string Name { get; set; }
 
+        [Display(Name = "Form Hakkında")]
         public string Description { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         [Column(TypeName = "Date")]
+        [Display(Name = "Oluşturulan Tarih")]
         public DateTime CreatedAt { get; set; }
 
         [NotMapped]
