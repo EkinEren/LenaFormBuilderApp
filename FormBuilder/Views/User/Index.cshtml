@@ -23,11 +23,11 @@
 
     @*Login Form Start*@
     <div class="login-container">
-        <h2>Welcome to FormBuilder</h2>
+        <h2>FormBuilder'a Hoşgeldiniz!</h2>
         @using (Html.BeginForm("Login", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "loginform", role = "form" }))
         {
             @Html.AntiForgeryToken()
-            <h3><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</h3>
+            <h3><i class="fa fa-sign-in" aria-hidden="true"></i> Giriş Yapın</h3>
             <div class="form-group">
                 @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
                 <i id="username-help" class="fa fa-info-circle"></i>
@@ -45,8 +45,8 @@
             @Html.ValidationSummary(excludePropertyErrors: true)
         }
 
-        <p><i>Don't have an account?</i></p>
-        <button type="button" id="loginBtn" class="btn btn-info">Register</button>
+        <p><i>Hesabınız yok mu?</i></p>
+        <button type="button" id="loginBtn" class="btn btn-info">Kayıt ol</button>
 
     </div>
             @*Login Form End*@
@@ -110,8 +110,8 @@
             </div>
         }
         <div style="margin-right:50px">
-            <p><i>Already have an account?</i></p>
-            <button type="button" id="registerBtn" class="btn btn-info">Login</button>
+            <p><i>Zaten bir hesabınız var mı?</i></p>
+            <button type="button" id="registerBtn" class="btn btn-info">Giriş yap</button>
         </div>
     </div>
          @*Register Form End*@

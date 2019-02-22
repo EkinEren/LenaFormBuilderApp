@@ -10,13 +10,14 @@ using System.Web.Services;
 
 namespace FormBuilder.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private DAL.FormContext db = new DAL.FormContext();
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Forms.ToList());
         }
 
         public ActionResult About()
