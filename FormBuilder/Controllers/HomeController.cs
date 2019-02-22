@@ -1,7 +1,9 @@
 ﻿using FormBuilder.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading;
 using System.Web;
@@ -17,14 +19,18 @@ namespace FormBuilder.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Forms.ToList());
-        }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+            var ctx = Request.GetOwinContext();
 
-            return View();
+            var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
+
+            // Get the claims values
+            var userId = identity.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
+                               .Select(c => c.Value).SingleOrDefault();
+
+            int id = Convert.ToInt32(userId);
+
+            return View(db.Forms.Where(i => i.UserId == id).ToList());
         }
 
         [HttpPost]
@@ -36,7 +42,6 @@ namespace FormBuilder.Controllers
 
             var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
 
-            // Get the claims values
             var userId = identity.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
                                .Select(c => c.Value).SingleOrDefault();
 
@@ -53,6 +58,24 @@ namespace FormBuilder.Controllers
             db.SaveChanges();
 
             return Json(form, JsonRequestBehavior.AllowGet);
+        }
+
+        // GET/showform/id
+        public ActionResult ShowForm(int? id)
+        {
+            //ViewData["id"] = id;
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CustomForm customForm = db.Forms.Find(id);
+
+            if (customForm == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customForm);
         }
 
     }

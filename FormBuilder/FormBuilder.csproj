@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\scripts\generateForm.js" />
     <Content Include="Content\scripts\getModal.js" />
     <Content Include="Content\scripts\searchTable.js" />
     <Content Include="Content\scripts\toggleLogin.js" />
@@ -237,7 +238,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\CustomForm\Create.cshtml" />
@@ -246,6 +246,7 @@
     <Content Include="Views\CustomForm\Edit.cshtml" />
     <Content Include="Views\CustomForm\Index.cshtml" />
     <Content Include="Views\Shared\_NewFormPopup.cshtml" />
+    <Content Include="Views\Home\ShowForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -24,6 +24,7 @@
         <input class="form-control" style="margin-left: 600px" id="search" type="text" placeholder="Form Ara..">
     </div>
     <br />
+    <br />
     <table class="table">
         <tr>
             <th>
@@ -40,17 +41,21 @@
         <tbody id="formTable">
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedAt)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.ActionLink("Görüntüle", "ShowForm", new { id = item.FormId }, new { @class = "showForm" })
+                </td>
+            </tr>
+
             }
         </tbody>
     </table>
