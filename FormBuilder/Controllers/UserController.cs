@@ -43,7 +43,7 @@ namespace FormBuilder.Controllers
             {
                 var identity = new ClaimsIdentity(new[] {
                     new Claim(ClaimTypes.Name, authenticatedUser.UserName),
-                    new Claim(ClaimTypes.NameIdentifier, authenticatedUser.Id.ToString())
+                    new Claim(ClaimTypes.NameIdentifier, authenticatedUser.UserId.ToString())
                 },
                     DefaultAuthenticationTypes.ApplicationCookie);
 

@@ -16,7 +16,6 @@ namespace FormBuilder.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<CustomForm> Forms { get; set; }
-        public DbSet<FormItem> FormItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

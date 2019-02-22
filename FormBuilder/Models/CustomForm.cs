@@ -21,7 +21,12 @@ namespace FormBuilder.Models
         [Column(TypeName = "Date")]
         public DateTime CreatedAt { get; set; }
 
-        public virtual ICollection<FormItem> FormItems { get; set; }
+        [NotMapped]
+        public List<FormItem> Fields = new List<FormItem>();
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
         public virtual User User { get; set; }
     }
 }

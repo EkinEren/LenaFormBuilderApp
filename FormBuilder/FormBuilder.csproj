@@ -178,7 +178,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomFormController.cs" />
-    <Compile Include="Controllers\FormItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\FormContext.cs" />
@@ -186,13 +185,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902191811281_InitialCreate.cs" />
-    <Compile Include="Migrations\201902191811281_InitialCreate.Designer.cs">
-      <DependentUpon>201902191811281_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211940287_InitialCreate1.cs" />
-    <Compile Include="Migrations\201902211940287_InitialCreate1.Designer.cs">
-      <DependentUpon>201902211940287_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201902221336521_initial.cs" />
+    <Compile Include="Migrations\201902221336521_initial.Designer.cs">
+      <DependentUpon>201902221336521_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomForm.cs" />
@@ -246,11 +241,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\FormItem\Create.cshtml" />
-    <Content Include="Views\FormItem\Delete.cshtml" />
-    <Content Include="Views\FormItem\Details.cshtml" />
-    <Content Include="Views\FormItem\Edit.cshtml" />
-    <Content Include="Views\FormItem\Index.cshtml" />
     <Content Include="Views\CustomForm\Create.cshtml" />
     <Content Include="Views\CustomForm\Delete.cshtml" />
     <Content Include="Views\CustomForm\Details.cshtml" />
@@ -275,11 +265,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902191811281_InitialCreate.resx">
-      <DependentUpon>201902191811281_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211940287_InitialCreate1.resx">
-      <DependentUpon>201902211940287_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902221336521_initial.resx">
+      <DependentUpon>201902221336521_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,7 +10,6 @@ namespace FormBuilder.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "FormBuilder.DAL.FormContext";
         }
 
         protected override void Seed(FormBuilder.DAL.FormContext context)

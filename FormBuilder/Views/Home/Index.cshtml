@@ -15,6 +15,7 @@
 <div class="container">
     <h1>FormBuilder</h1>
     <h2>Hoşgeldin, @User.Identity.Name!</h2>
+    <h5 id="addSuccess"></h5>
     <br />
     <h3>Form Yönetim Sayfası</h3>
     <div style="display:inline-flex">
@@ -73,12 +74,12 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.Name, "Form Adı", new { @class = "control-label" })
                             <i id="username-help" class="fa fa-info-circle"></i>
-                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" , @id = "formName"})
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.Description, "Açıklama", new { @class = "control-label" })
-                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", @id = "formDesc" })
                         </div>
                         <div class="form-group" id="fieldOptions">
                             <fieldset id="formfields">
