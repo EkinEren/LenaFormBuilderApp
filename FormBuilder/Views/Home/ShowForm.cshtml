@@ -4,11 +4,6 @@
     ViewBag.Title = "ShowForm";
 }
 
-@section scripts
-{
-    <script type="text/javascript" src="@Url.Content("/Content/scripts/generateForm.js")"></script>
-}
-
 @Html.Hidden("id", @ViewContext.RouteData.Values["id"])
 
 
@@ -20,44 +15,49 @@
     {
         var length = Model.Fields.Length;
         @Html.AntiForgeryToken()
+        <fieldset id="yourform"><legend>@Html.DisplayName(Model.Name)</legend></fieldset>
         for (var i = 0; i < length; i++)
         {
             if (Model.Fields[i].DataType == "STRING")
             {
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Fields[i].DataType, new { @class = "control-label" })
+                    <label>@Html.DisplayName(Model.Fields[i].Name)</label>
                     <i id="username-help" class="fa fa-info-circle"></i>
-                    @Html.TextBoxFor(model => model.Fields[i].DataType, new { @class = "form-control" })
-                    @Html.DisplayName(Model.Fields[i].DataType)
+                    @if (Model.Fields[i].Required)
+                    {
+                        <input type="text" class="form-control" required />
+                    }
+                    else
+                    { <input type="text" class="form-control" required />}
+
                     @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
                 </div>
 
             }
-            <div class="form-group">
-                @Html.LabelFor(model => model.Fields[i].DataType, new { @class = "control-label" })
-                <i id="username-help" class="fa fa-info-circle"></i>
-                @Html.TextBoxFor(model => model.Fields[i].DataType, new { @class = "form-control" })
-                @Html.DisplayName(Model.Fields[i].DataType)
-                @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Fields[i].Name, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Fields[i].Name, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Fields[i].Name, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.Fields[i].Required, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Fields[i].Required, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Fields[i].Required, "", new { @class = "text-danger" })
-            </div>
+
+            if (Model.Fields[i].DataType == "NUMBER")
+            {
+
+                <div class="form-group">
+                    <label>@Html.DisplayName(Model.Fields[i].Name)</label>
+                    <i id="username-help" class="fa fa-info-circle"></i>
+                    @if (Model.Fields[i].Required)
+                    {
+                        <input type="text" class="form-control" required />
+                    }
+                    else
+                    { <input type="text" class="form-control" required />}
+
+                    @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
+                </div>
+
+            }
 
         }
         @Html.ValidationSummary(excludePropertyErrors: true)
     }
 
-    <p id="theJson"></p>
-
-    <button type="button" class="btn btn-primary" id="preview">Form Oluştur</button>
+    <button type="button" class="btn btn-primary" id="save">Kaydet</button>
 
 </div>
