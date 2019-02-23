@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "ShowForm";
-    ViewBag.Json = @Html.Raw(Json.Encode(Model.Fields));
 }
 
 @section scripts
@@ -10,55 +9,55 @@
     <script type="text/javascript" src="@Url.Content("/Content/scripts/generateForm.js")"></script>
 }
 
-@Html.Hidden("id", @ViewContext.RouteData.Values["id"]);
+@Html.Hidden("id", @ViewContext.RouteData.Values["id"])
 
 
 <h2>Form Görüntüleme Sayfası</h2>
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.FirstMidName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.User.FirstMidName)
-        </dd>
+    @using (Html.BeginForm())
+    {
+        var length = Model.Fields.Length;
+        @Html.AntiForgeryToken()
+        for (var i = 0; i < length; i++)
+        {
+            if (Model.Fields[i].DataType == "STRING")
+            {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Fields[i].DataType, new { @class = "control-label" })
+                    <i id="username-help" class="fa fa-info-circle"></i>
+                    @Html.TextBoxFor(model => model.Fields[i].DataType, new { @class = "form-control" })
+                    @Html.DisplayName(Model.Fields[i].DataType)
+                    @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
+                </div>
 
-        <dd id="fname">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            }
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fields[i].DataType, new { @class = "control-label" })
+                <i id="username-help" class="fa fa-info-circle"></i>
+                @Html.TextBoxFor(model => model.Fields[i].DataType, new { @class = "form-control" })
+                @Html.DisplayName(Model.Fields[i].DataType)
+                @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fields[i].Name, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Fields[i].Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Fields[i].Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Fields[i].Required, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Fields[i].Required, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Fields[i].Required, "", new { @class = "text-danger" })
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+        }
+        @Html.ValidationSummary(excludePropertyErrors: true)
+    }
 
-        <dd id="fdesc">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-
-    </dl>
-    <p id="theJson">@ViewBag.Json</p>
+    <p id="theJson"></p>
 
     <button type="button" class="btn btn-primary" id="preview">Form Oluştur</button>
-
-    <ul>
-        <li id="formName"></li>
-        <li id="formDesc"></li>
-        <li id="formDate"></li>
-        <li id="firstField"></li>
-    </ul>
 
 </div>

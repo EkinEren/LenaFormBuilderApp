@@ -28,7 +28,7 @@
 
         $.ajax({
             type: "POST",
-            url: 'CreateForm',
+            url: 'Home/CreateForm',
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify(newForm),
             method: "POST",

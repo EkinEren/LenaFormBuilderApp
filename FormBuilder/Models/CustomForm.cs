@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -24,8 +25,17 @@ namespace FormBuilder.Models
         [Display(Name = "Oluşturulan Tarih")]
         public DateTime CreatedAt { get; set; }
 
+        //[NotMapped]
+        //public List<FormItem> Fields = new List<FormItem>();
+
+        internal string _Fields { get; set; }
+
         [NotMapped]
-        public List<FormItem> Fields = new List<FormItem>();
+        public FormItem[] Fields
+        {
+            get { return _Fields == null ? null : JsonConvert.DeserializeObject<FormItem[]>(_Fields); }
+            set { _Fields = JsonConvert.SerializeObject(value); }
+        }
 
         [ForeignKey("User")]
         public int UserId { get; set; }

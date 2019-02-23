@@ -189,6 +189,22 @@
     <Compile Include="Migrations\201902221336521_initial.Designer.cs">
       <DependentUpon>201902221336521_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902222010458_trial.cs" />
+    <Compile Include="Migrations\201902222010458_trial.Designer.cs">
+      <DependentUpon>201902222010458_trial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902222018186_trial2.cs" />
+    <Compile Include="Migrations\201902222018186_trial2.Designer.cs">
+      <DependentUpon>201902222018186_trial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902222252162_changeModel.cs" />
+    <Compile Include="Migrations\201902222252162_changeModel.Designer.cs">
+      <DependentUpon>201902222252162_changeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902222304123_changeModelAgain.cs" />
+    <Compile Include="Migrations\201902222304123_changeModelAgain.Designer.cs">
+      <DependentUpon>201902222304123_changeModelAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomForm.cs" />
     <Compile Include="Models\FormItem.cs" />
@@ -267,6 +283,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902221336521_initial.resx">
       <DependentUpon>201902221336521_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902222010458_trial.resx">
+      <DependentUpon>201902222010458_trial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902222018186_trial2.resx">
+      <DependentUpon>201902222018186_trial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902222252162_changeModel.resx">
+      <DependentUpon>201902222252162_changeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902222304123_changeModelAgain.resx">
+      <DependentUpon>201902222304123_changeModelAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
