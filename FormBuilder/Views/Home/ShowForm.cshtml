@@ -9,6 +9,7 @@
 
 <h2>Form Görüntüleme Sayfası</h2>
 <div>
+    @Html.ActionLink("Form Listesine Geri Dön", "Index")
     <hr />
     @using (Html.BeginForm())
     {
@@ -55,7 +56,7 @@
         }
         @Html.ValidationSummary(excludePropertyErrors: true)
     }
-
     <button type="button" class="btn btn-primary" id="save">Kaydet</button>
+
 
 </div>
