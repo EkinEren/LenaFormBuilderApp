@@ -24,6 +24,7 @@
             <div class="modal-body">
                 @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { id = "modalform", role = "form" }))
                 {
+                    @Html.ValidationSummary(excludePropertyErrors: true)
                     @Html.AntiForgeryToken()
                     <h3><i class="fa fa-sign-in" aria-hidden="true"></i> Form Bilgileri</h3>
                     <div class="form-group">
@@ -50,7 +51,6 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
                         </div>
                     </div>
-                    @Html.ValidationSummary(excludePropertyErrors: true)
                 }
             </div>
         </div>

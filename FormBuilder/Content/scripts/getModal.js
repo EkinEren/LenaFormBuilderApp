@@ -20,13 +20,20 @@ $(document).ready(function () {
         }
 
         //var token = $('[name=__RequestVerificationToken]').val();
+        var nonEmptyInputs = $('input.fieldname').filter(function () {
+            return !!this.value;
+        }).length;
+
+        var len = $('input.fieldname').length;
 
         var newForm = new Object();
         newForm.Name = formname;
         newForm.Description = desc;
         newForm.CreatedAt = today;
         newForm.Fields = fields;
-        if (fields.length > 0) {
+        console.log($("#modalform").valid());
+
+        if (fields.length > 0 && nonEmptyInputs === len) {
             $.ajax({
                 type: "POST",
                 url: 'Home/CreateForm',
@@ -53,7 +60,11 @@ $(document).ready(function () {
             });
         }
         else {
-            alert("En az bir adet alan eklemelisiniz!");
+            if (nonEmptyInputs !== len)
+                alert("Alan adları boş bırakılamaz.");
+            else
+                alert("En az bir adet alan eklemelisiniz!");
+               
         }
     });
 });
