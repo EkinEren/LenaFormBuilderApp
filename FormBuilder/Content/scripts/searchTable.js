@@ -2,7 +2,7 @@
     $("#search").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#formTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            $(this).toggle($(this).children(':eq(0)').text().toLowerCase().indexOf(value) > -1);
         });
     });
 });

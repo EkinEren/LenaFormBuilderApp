@@ -14,10 +14,16 @@
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - FormBuilder</p>
+            <form method="post" action="@Url.Action("LogOut", "User")" id="signoutfrm" style="display:none;">
+                @Html.AntiForgeryToken()
+            </form>
+
+            <a href="" onclick="$('#signoutfrm').submit(); return false;">LOGOUT</a>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

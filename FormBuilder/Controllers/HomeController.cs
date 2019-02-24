@@ -60,23 +60,6 @@ namespace FormBuilder.Controllers
             return Json(form, JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public JsonResult GetForm(int id)
-        //{
-        //    var ctx = Request.GetOwinContext();
-
-        //    var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
-
-        //    var userId = identity.Claims.Where(c => c.Type == ClaimTypes.NameIdentifier)
-        //                       .Select(c => c.Value).SingleOrDefault();
-
-        //    var userID = Convert.ToInt32(userId);
-
-        //    CustomForm form = db.Forms.Where(i => i.UserId == userID & i.FormId == id).FirstOrDefault();
-
-        //    return Json(form, JsonRequestBehavior.AllowGet);
-        //}
-
         // GET/showform/id
         public ActionResult ShowForm(int? id)
         {
@@ -93,6 +76,17 @@ namespace FormBuilder.Controllers
                 return HttpNotFound();
             }
             return View(customForm);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteForm(int id)
+        {
+
+            CustomForm customForm = db.Forms.Find(id);
+            db.Forms.Remove(customForm);
+            db.SaveChanges();
+
+            return Json(customForm, JsonRequestBehavior.AllowGet);
         }
 
     }

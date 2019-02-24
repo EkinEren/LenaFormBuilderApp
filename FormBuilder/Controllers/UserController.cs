@@ -16,7 +16,7 @@ using FormContext = FormBuilder.DAL.FormContext;
 
 namespace FormBuilder.Controllers
 {
-
+    [AllowAnonymous]
     public class UserController : Controller
     {
         private FormContext db = new FormContext();

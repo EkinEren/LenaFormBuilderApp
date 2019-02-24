@@ -13,7 +13,7 @@ namespace FormBuilder.Models
         [Key]
         public int FormId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Form adı gereklidir.")]
         [Display(Name = "Form Adı")]
         public string Name { get; set; }
 

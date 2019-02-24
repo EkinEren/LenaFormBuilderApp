@@ -10,7 +10,6 @@
 <h2>Form Görüntüleme Sayfası</h2>
 <div>
     <hr />
-
     @using (Html.BeginForm())
     {
         var length = Model.Fields.Length;
@@ -20,7 +19,6 @@
         {
             if (Model.Fields[i].DataType == "STRING")
             {
-
                 <div class="form-group">
                     <label>@Html.DisplayName(Model.Fields[i].Name)</label>
                     <i id="username-help" class="fa fa-info-circle"></i>
@@ -29,7 +27,7 @@
                         <input type="text" class="form-control" required />
                     }
                     else
-                    { <input type="text" class="form-control" required />}
+                    { <input type="text" class="form-control" />}
 
                     @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
                 </div>
@@ -44,10 +42,10 @@
                     <i id="username-help" class="fa fa-info-circle"></i>
                     @if (Model.Fields[i].Required)
                     {
-                        <input type="text" class="form-control" required />
+                        <input type="number" class="form-control" required />
                     }
                     else
-                    { <input type="text" class="form-control" required />}
+                    { <input type="number" class="form-control" />}
 
                     @Html.ValidationMessageFor(model => model.Fields[i].DataType, "", new { @class = "text-danger" })
                 </div>

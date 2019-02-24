@@ -42,7 +42,7 @@
             @foreach (var item in Model)
             {
             <tr>
-                <td>
+                <td class="formName">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
@@ -52,7 +52,8 @@
                     @Html.DisplayFor(modelItem => item.CreatedAt)
                 </td>
                 <td>
-                    @Html.ActionLink("Görüntüle", "ShowForm", new { id = item.FormId }, new { @class = "showForm" })
+                    @Html.ActionLink("Görüntüle", "ShowForm", new { id = item.FormId }, new { @class = "showForm" }) |
+                    @Html.ActionLink("Sil", "DeleteForm", new { }, new { @class = "deleteForm", @id = item.FormId })
                 </td>
             </tr>
 
